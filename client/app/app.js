@@ -1,13 +1,19 @@
 'use strict';
 
 angular.module('rentshakStageApp', [
+  'backand',
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ui.router',
   'ui.bootstrap'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+  .config(function (BackandProvider, $stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    BackandProvider.manageDefaultHeaders();
+    BackandProvider.setAppName('rentshak');
+    //BackandProvider.setSignUpToken('1704018f-62ae-43b9-b971-34dc23feec29');
+    //BackandProvider.setAnonymousToken('ef081c5f-0b71-4c41-90be-fea272374bdb');
+    
     $urlRouterProvider
       .otherwise('/');
 
